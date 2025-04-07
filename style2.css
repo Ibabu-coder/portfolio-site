@@ -1,0 +1,240 @@
+
+
+body {
+    background-color: black;
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+.navbar {
+  position: fixed;
+    width:100%;
+    top: 0;
+    left: 0;
+    padding: 25px 9%;
+  
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    box-sizing: border-box;
+    visibility: hidden;
+opacity: 0;
+animation: show-content 1.5s linear forwards;
+animation-delay: 1.5s;
+}
+@keyframes show-content {
+    100% {
+        visibility: visible;
+        opacity: 1;
+    }
+    }
+        
+.navbar .logo {
+    font-weight: bold;
+    margin-left: 20%;
+    font-size: 20px;
+    
+
+}
+.navbar ul  {
+    display: flex;
+}
+.navbar ul li {
+    list-style: none;
+    margin-left: 35px;
+}
+.navbar ul li a {
+    font-size: 20px;
+    font-weight: 100;
+    transition: .5s;
+}
+.navbar ul li:hover a,
+.navbar ui li.active a {
+    color: greenyellow;
+}
+.home {
+    display: flex;
+    color: white;
+    padding: 60px 9% 0;
+   gap: 50px;
+    align-items: center;
+    height: 100vh;
+    animation: show-content 1.5s linear forwards;
+    animation-delay: 1.6s;
+
+}
+.home-info h1 {
+    font-size: 55px;
+}
+.home-info h2 {
+    font-size: 32px;
+    margin-top: -10px;
+   
+    display: inline-block;
+}
+.home-info h2 span {
+    display: inline-block;
+    color: transparent;
+    -webkit-text-stroke: .7px greenyellow;
+    animation: display-text 16s linear infinite;
+    animation-delay: calc(-7s * var(--i));
+    position: relative;
+}
+@keyframes display-text {
+    25%, 100% {
+        display: none;
+    }
+}
+.home-info h2 span::before {
+    content:attr(data-text);
+    position:absolute ;
+    width: 0;
+    border-right: 2px solid greenyellow;
+    color: greenyellow;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: fill-text 4s linear infinite;
+}
+@keyframes fill-text {
+    10%,
+    100% {
+        width: 0;
+    }
+    70%, 
+    90%{
+        width: 100%;
+    }
+}
+.home-info p {
+    font-size: 16px;
+    margin-top: 10px;
+}
+.home-info .btn-sci {
+    display: flex;
+    align-items: center;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 30px;
+    background: greenyellow;
+    border: 2px solid greenyellow;
+    border-radius: 40px;
+    box-shadow: 0 0 10px green;
+    font-size: 16px;
+    color: black;
+    font-weight: 600;
+    transition: 0.5s;
+
+}
+.btn:hover {
+    background-color: transparent;
+    color: greenyellow;
+    box-shadow: none;
+}
+.home-info .btn-sci .sci {
+    margin-left: 20px;
+}
+.home-info .btn-sci .sci a {
+    display: inline-flex;
+    padding: 8px;
+    border: 2px solid greenyellow;
+    font-size: 20px;
+    color: greenyellow;
+    border-radius: 50px;
+    margin: 0 8px;
+    transition: 0.5s;
+    
+}
+.home-info .btn-sci .sci a:hover {
+    background: greenyellow;
+    color: black;
+    box-shadow: 0 0 10px greenyellow;
+
+}
+.home-img .img-box {
+  background-color: red;
+   border-radius: 50%;
+   width: 32vh;
+   height: 32vh;
+   margin:0px 0px 30px;
+padding: 5px;
+align-items: center;
+justify-content: center;
+
+
+   
+   
+}
+.home-img .img-box::before,
+.home-img .img-box::after {
+  content: ''; 
+  position: absolute; 
+  width: 32vh;
+  height: 32vh;
+ background: conic-gradient(transparent,transparent,transparent,green);
+  transform: rotate(0deg);
+  animation: rotate-border .1ms linear infinite;
+ 
+}
+.home-img .img-box::after {
+    animation-delay: -5s;
+}
+@keyframes rotate-border {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.home-img .img-box .img-item {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  z-index: 1;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+background-color: black;
+  border: 1px solid black;
+  
+}
+.home-img .img-box .img-item img {
+   
+   
+    position: absolute;
+    display: block;
+    width: 100%;
+    object-fit: cover;
+    height: 100%;
+  mix-blend-mode: lighten;
+    border-radius: 50%;
+   
+
+}
+.bar-animation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: -1;
+}
+.bar-animation .bar {
+    width: 100%;
+    height: 100%;
+    background: black;
+    
+    transform: translateY(100%);
+    animation: show-bars .5s ease-in-out forwards;
+    animation-delay: calc(.1s * var(--i));
+}
+
+@keyframes show-bars {
+  100% {
+      transform: translateY(0%);
+    }
+}
